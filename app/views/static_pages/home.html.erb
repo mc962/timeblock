@@ -1,0 +1,15 @@
+<h1 class="auth-header">Enter Your Code</h1>
+
+<%= form_tag('/enter', method: "post", id: "code_auth_form", class: "code-auth-form") do %>
+    <%= text_field_tag(:authentication_code, nil, class: "auth-form-input auth-code") %>
+    <%= submit_tag("Submit", class: "auth-form-input") %>
+<% end %>
+
+
+<!-- <form id="code_auth_form" class="code_auth_form" method="post" action="enter">
+    <%= hidden_field_tag :authenticity_token, form_authenticity_token %>
+
+    <input type="password" id="authentication_code" name="enter[auth_code]" class="auth-form-input auth-code" />
+
+    <input type="submit" id="auth_submit" class="auth-form-input" value="Submit" />
+</form> --> 
