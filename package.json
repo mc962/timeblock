@@ -1,5 +1,8 @@
 {
   "name": "timeblock",
   "private": true,
-  "dependencies": {}
+  "dependencies": {},
+  "devDependencies": {
+    "eslint": "^4.13.1"
+  }
 }

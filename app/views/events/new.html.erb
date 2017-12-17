@@ -1,2 +1,33 @@
-<h1>Events#new</h1>
-<p>Find me in app/views/events/new.html.erb</p>
+<% if basicly_authenticated? %>
+    <h1 class="event-form-header">Enter Information For Your Event</h1>
+
+    <%= form_tag(:events, method: "post", id: "new_event_form", class: "new-event-form") do %>
+        <div class="event-form-inputs">
+            <div class="event-form-contents">
+                <%= label_tag('event_time', 'Time', class: "event-form-label") %>
+                <%= date_field("event", "time", required: true, class: "event-form-input event-form-date") %>
+
+                <%= label_tag('event_location', 'Location', class: "event-form-label") %>
+                <%= text_field("event", "location", required: true, class: "event-form-input") %>
+
+                <%= label_tag('event_title', 'Name', class: "event-form-label") %>
+                <%= text_field("event", "title", class: "event-form-input") %>
+
+                <%= label_tag('event_description', 'Description', class: "event-form-label") %>
+                <%= text_area("event", "description", class: "event-form-input event-form-textarea") %>
+
+                <%= label_tag('event_comments', 'Additional Comments', class: "event-form-label") %>
+                <%= text_area("event", "comments", class: "event-form-input event-form-textarea") %>
+            </div>            
+            <%= submit_tag("Create", class: "event-form-input event-form-submit") %>            
+        </div>
+        
+    <% end %>
+<% else %>
+    <h1 class="auth-header">Enter Your Code</h1>
+
+    <%= form_tag('/enter', method: "post", id: "code_auth_form", class: "code-auth-form", autocomplete: "off") do %>
+        <%= password_field_tag(:authentication_code, nil, class: "auth-form-input auth-code") %>
+        <%= submit_tag("Submit", class: "auth-form-input") %>
+    <% end %>
+<% end %>

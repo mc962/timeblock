@@ -1,3 +1,103 @@
-// Place all the styles related to the events controller here.
-// They will automatically be included in application.css.
-// You can use Sass (SCSS) here: http://sass-lang.com/
+/* new event page */
+
+.event-form-header {
+    text-align: center;
+}
+
+.new-event-form {
+    display: flex; 
+    flex-direction: column;
+    width: 50vw;
+    height: 80vh;
+    margin: 0 auto;
+    box-sizing: border-box;
+}
+
+.event-form-inputs {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+    justify-content: space-between;
+}
+
+.event-form-contents {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 70vh;
+    width: 100vw;
+}
+
+.event-form-input {
+    width: 20%;
+    margin: 2%;
+    text-align: center;    
+    padding: 0.5%;
+
+    border-radius: 2%;
+}
+
+.event-form-label {
+    text-align: left;
+}
+
+.event-form-date {
+    text-align: inherit;
+    // padding: 0.5%;
+}
+
+.event-form-textarea {
+    text-align: inherit;
+    height: 15%;
+    // padding: 0.5%;
+}
+
+.event-form-submit {
+    width: 40%;
+    cursor: pointer;
+}
+
+/* auth page */
+
+.auth-header {
+    margin: 0 auto;
+    text-align: center;
+    padding: 2% 2% 4% 2%;
+}
+
+.code-auth-form {
+    margin: 0 auto;
+    width: 50vw;
+    height: 60vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+
+    border: 2px solid #C5C5C5;
+    border-radius: 2%;
+}
+
+.auth-form-inputs {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    height: 50%;
+}
+
+.auth-form-input {
+    width: 12vw;
+    height: 4vh;
+    margin: 0 auto;
+    border-radius: 2%;
+}
+
+.auth-code {
+    box-sizing: border-box;
+    width: 20vw;
+    padding: 2%;
+    text-align: center;
+}
+.auth-form-submit {
+    cursor: pointer;
+}
