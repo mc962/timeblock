@@ -2,8 +2,9 @@ Rails.application.routes.draw do
 
   root to: 'events#new'
 
-  resources :events, only: [:new, :create]
+  post 'enter', to: 'events#enter', as: :enter
+  get 'enter', to: redirect('/')
 
-  get 'enter', to: 'events#enter'
-  post 'enter', to: 'events#enter'
+  post :events, to: 'events#create', as: :events
+
 end

@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-Type" />
+    <title>Special Event</title>
+  </head>
+  <body>
+    <h1>You have been invited to <%= @event.title %></h1>
+    <h2>Time: <%= @event.time %> </h2>
+    <h2>It is located at the following address:</h2>
+    <address class="event-address">
+      <%= @event.location %>
+    </address>
+    <h2>Here is a description of the event:</h2>
+    <p><%= @event.description %></p>
+    <br />
+    <h4>Additional Comments</h4>
+    <p><%= @event.comments %></p>
+  </body>
+</html>

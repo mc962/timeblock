@@ -6,7 +6,7 @@ class ApplicationController < ActionController::Base
   private
 
   def basicly_authenticated?
-    if session[:authentication_code] == Figaro.env.entry_auth_key
+    if session[:authentication_code] == Figaro.env.session_auth_key
       true
     else
       false

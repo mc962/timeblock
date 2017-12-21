@@ -1,7 +1,12 @@
 class EventsController < ApplicationController
-  before_action :redirect_if_authenticated, only: :enter
+  # before_action :redirect_if_authenticated, only: :enter
   before_action :authenticate_session, only: :create
-  
+
+  def new
+    # reset_session
+    render :new
+  end
+
   def enter
     if authenticate_code(params[:authentication_code])
       redirect_to action: :new
@@ -11,15 +16,12 @@ class EventsController < ApplicationController
     end
   end
 
-  def new
-    render :new
-  end
-
   def create
     @event = Event.new(event_params)
     if @event.save
       flash[:notice] = "Event successfully saved"
-      redirect_to new_event_path
+      EventMailer.create_event_email(@event).deliver_now
+      redirect_to root_path
     else
       flash.now[:error] = @event.errors.full_messages
       render :new
@@ -34,7 +36,7 @@ class EventsController < ApplicationController
 
   def authenticate_code(code)
     if code == Figaro.env.entry_auth_key
-      session[:authentication_code] = Figaro.env.entry_auth_key
+      session[:authentication_code] = Figaro.env.session_auth_key
       return true
     else
       return false
@@ -42,25 +44,18 @@ class EventsController < ApplicationController
   end
 
   def authenticate_session
-    unless session[:authentication_code] == Figaro.env.entry_auth_key
+    unless session[:authentication_code] == Figaro.env.session_auth_key
       flash.now[:error] = "You are not authorized to view this page. Enter a valid authentication code below"
-      render :home and return
+      render :new, status: 403 and return
     end
 
     return true
   end
 
   def redirect_if_authenticated
-    if authenticate_code(session[:authentication_code])
+    if authenticate_session
       redirect_to action: :new
     end
   end
-  # def check_authentication
-  #   unless params[:authentication_code] == Figaro.env.entry_auth_key
-  #     flash.now[:alert] = "Invalid code!"
-  #     render :home and return
-  #   end
-    
-  #   return true
-  # end
+
 end

@@ -12,12 +12,12 @@
 #  updated_at  :datetime         not null
 #
 
-FactoryBot.define do
-    factory :event do
-        time {|t| Faker::Time.between(DateTime.now, DateTime.now + rand(100)) }
-        location { |l| Faker::LordOfTheRings.location }
-        title { |t| Faker::HowIMetYourMother.catch_phrase }
-        description { |d| Faker::Lorem.sentence }
-        comments { |c| Faker::Lorem.sentence }
+require 'rails_helper'
+
+RSpec.describe Event, type: :model do
+    describe 'validates the presence of required traits' do
+        it { should validate_presence_of(:time) }
+        it { should validate_presence_of(:location) }
+
     end
 end
