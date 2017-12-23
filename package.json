@@ -1,8 +1,12 @@
 {
   "name": "timeblock",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "@rails/webpacker": "^3.2.0",
+    "coffeescript": "1.12.7"
+  },
   "devDependencies": {
-    "eslint": "^4.13.1"
+    "eslint": "^4.13.1",
+    "webpack-dev-server": "^2.9.7"
   }
 }
