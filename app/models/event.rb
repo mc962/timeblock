@@ -14,4 +14,15 @@
 
 class Event < ApplicationRecord
     validates :time, :location, presence: true
+
+    # after_find :convert_local_time
+
+    # private
+    #
+    # def convert_local_time
+    #   debugger
+    #
+    #   self.time = self.time.localtime
+    #   self.time = self.time.strftime('%m/%d/%Y, %I:%M%p')
+    # end
 end

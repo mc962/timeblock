@@ -1,23 +1,66 @@
+body {
+  background: #215f00;  /* fallback for old browsers */
+  background: -webkit-linear-gradient(to top, #e4e4d9, #215f00);  /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(to bottom, #e4e4d9, #215f00); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+}
+
 /* new event page */
 
-.event-form-header {
+.event-form-header,
+.auth-header {
     text-align: center;
+    margin: 1%;
+    color: red;
+    text-shadow: 1px 1px 2px black;
 }
 
 .new-event-form {
-    display: flex; 
+    display: flex;
     flex-direction: column;
-    width: 50vw;
-    height: 80vh;
+    width: 100%;
+    height: 100%;
     margin: 0 auto;
     box-sizing: border-box;
+    font-family: 'Lato', sans-serif;
+    justify-content: center;
 }
 
+.event-basics {
+  width: 100%;
+  height: 12vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+}
+
+.event-descriptors {
+  width: 100%;
+  // height: 40%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.time-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 25vw;
+  height: 10vh;
+}
+
+.location-inputs {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 20vw;
+  height: 10vh;
+}
 .event-form-inputs {
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 100vh;
+    // height: 100%;
     justify-content: space-between;
 }
 
@@ -25,16 +68,17 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    height: 70vh;
-    width: 100vw;
+    // height: 70vh;
+    // width: 100vw;
 }
 
 .event-form-input {
-    width: 20%;
-    margin: 2%;
-    text-align: center;    
+    // width: 2%;
+    margin: 1.7%;
+    text-align: center;
     padding: 0.5%;
-
+    background-color: #FF4E33;
+    border: 2px solid #BB2D17;
     border-radius: 2%;
 }
 
@@ -42,14 +86,18 @@
     text-align: left;
 }
 
-.event-form-date {
+.event-form-date,
+.event-form-location,
+.event-form-name {
     text-align: inherit;
+    width: 50%;
     // padding: 0.5%;
 }
 
 .event-form-textarea {
     text-align: inherit;
-    height: 15%;
+    height: 15vh;
+    width: 40%;
     // padding: 0.5%;
 }
 
@@ -73,7 +121,7 @@
     display: flex;
     flex-direction: column;
     justify-content: space-around;
-
+    background-color: #D5E0CE;
     border: 2px solid #C5C5C5;
     border-radius: 2%;
 }
@@ -90,6 +138,8 @@
     height: 4vh;
     margin: 0 auto;
     border-radius: 2%;
+    background-color: #FF4E33;
+    border: 2px solid #BB2D17;
 }
 
 .auth-code {
@@ -100,4 +150,15 @@
 }
 .auth-form-submit {
     cursor: pointer;
+}
+
+/* flash */
+
+.notice {
+  color: #F18989;
+  background-color: #D8DE7A;
+  width: 30%;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 3%;
 }

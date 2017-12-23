@@ -8,7 +8,7 @@ RSpec.describe EventMailer, type: :mailer do
     it 'renders the headers' do
       expect(mail.subject).to eq("[SPECIAL EVENT] #{event.title}")
       expect(mail.to).to eq(["#{Figaro.env.event_send_email}"])
-      expect(mail.from).to eq(['no-reply@google.com'])
+      expect(mail.from).to eq(['no-reply@timeblock.herokuapp.com'])
     end
 
     it 'renders the body' do

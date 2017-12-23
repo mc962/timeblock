@@ -3,7 +3,7 @@ class EventsController < ApplicationController
   before_action :authenticate_session, only: :create
 
   def new
-    # reset_session
+    reset_session
     render :new
   end
 
